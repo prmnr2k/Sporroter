@@ -57,14 +57,14 @@ export class SearchComponent implements OnInit {
     hCards:number=100;
     mapBut:boolean = false;
     showDP:boolean = false;
-    
+    datesSearh:boolean = true;
     _bsRangeValue: any = [this.prevWeek(new Date()), this.nextWeek(new Date())];
     get bsRangeValue(): any {
       return this._bsRangeValue;
     }
    
     set bsRangeValue(v: any) {
-      this._bsRangeValue = v;
+            this._bsRangeValue = v;
     }
 
     @ViewChild('searchg') public searchElement: ElementRef;
@@ -160,9 +160,18 @@ export class SearchComponent implements OnInit {
 
       GetAllActivities(){
         this.isLoading = true;
-
-        this.Params.from_date = this.bsRangeValue[0];
-        this.Params.to_date = this.bsRangeValue[1];
+        if(this.searchElement.nativeElement.value==""||!this.searchElement.nativeElement.value){
+            console.log(`NO address`);
+            this.Params.public_lat = null;
+            this.Params.public_lng = null;
+            }
+          
+        if(this.datesSearh){
+            this.Params.from_date = this.bsRangeValue[0];
+            this.Params.to_date = this.bsRangeValue[1];
+        }
+       
+        
 
         console.log(this.Params);
    

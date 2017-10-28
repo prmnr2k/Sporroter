@@ -34,7 +34,7 @@ export class IndexComponent implements OnInit{
     lengthShortName:number = 6;
     bsConfig:Partial<BsDatepickerConfig>;
     Params = {
-        limit:4,
+        limit: 4,
         title: '',
         address: '',
         from_date:null

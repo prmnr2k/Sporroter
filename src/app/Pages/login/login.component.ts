@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit{
     
     ngOnInit(): void {
         this.isLoading = false;
+        this.signStatus();
     }
     constructor(private router: Router,
         private mainService: MainService,
@@ -51,16 +52,29 @@ export class LoginComponent implements OnInit{
         
     }
 
+
+    signStatus()
+    {
+        let status = localStorage.getItem("_login_provider");
+        console.log(`log status = `,status,this.user);
+        return status;
+    }
+
     signIn(provider){
+        if(!this.signStatus())
         this.sub = this._auth.login(provider).subscribe(
           (data) => {
-            console.log(data);this.user=data;}
-        )
+            console.log(data);this.user=data;
+            this.signStatus();}
+        );
+       
       }
 
       logout(){
         this.sub =this._auth.logout().subscribe(
-          (data)=>{console.log(data);this.user=null;}
-        )
-      }
+          (data)=>{console.log(data);this.user=null;
+            this.signStatus();}
+        );
+     
+    }
 }
