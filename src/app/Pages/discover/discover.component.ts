@@ -148,6 +148,12 @@ export class DiscoverComponent implements OnInit{
         this.Params.from_date = this.bsRangeValue[0];
         this.Params.to_date = this.bsRangeValue[1];
         //this.Params.dates = [this.Start, this.Finish];
+
+        if(this.searchElement.nativeElement.value==""||!this.searchElement.nativeElement.value){
+            console.log(`NO address`);
+            this.Params.address = null;
+            }
+
         console.log(this.Params);
         this.service.GetAllActivities(this.Params)
         .subscribe((res:ActivityModel[])=>{
@@ -239,6 +245,15 @@ export class DiscoverComponent implements OnInit{
         let nextDay = new Date(date);
         nextDay.setDate(date.getDate()-10);
         return nextDay;
+    }
+    getDates(){
+        let date1 = new Date(this.Params.from_date);
+        let string1 = (date1.getMonth()+1)+`/`+(date1.getDate())+`/`+(date1.getFullYear());
+
+        let date2 = new Date(this.Params.to_date);
+        let string2 = (date2.getMonth()+1)+`/`+(date2.getDate())+`/`+(date2.getFullYear());
+
+        return string1+` - `+string2;
     }
 
 }
