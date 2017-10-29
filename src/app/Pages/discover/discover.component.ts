@@ -200,10 +200,18 @@ export class DiscoverComponent implements OnInit{
     
 }
 
-    ActivityRev(act:ActivityModel[]){
-        this.Activities = [];
-        for(let item of act) if(item.user_name&&item.title)this.Activities.push(item);
+ActivityRev(act:ActivityModel[]){
+    this.Activities = [];
+    
+    for(let item of act) if(item.user_name&&item.title)
+    {
+        let dupl:boolean = false;
+        for(let itemA of this.Activities)if(item.id==itemA.id)dupl=true;
+        if(!dupl)
+        this.Activities.push(item);
     }
+    
+}
     
     FromDateChanged($event){
         let date:Date = new Date($event);

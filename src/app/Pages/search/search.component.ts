@@ -167,8 +167,8 @@ export class SearchComponent implements OnInit {
             }
           
         if(this.datesSearh){
-            this.Params.from_date = this.bsRangeValue[0];
-            this.Params.to_date = this.bsRangeValue[1];
+            this.Params.from_date = this.dateSwap(this.bsRangeValue[0],-5);
+            this.Params.to_date = this.dateSwap(this.bsRangeValue[1],5);
         }
        
         
@@ -208,8 +208,13 @@ export class SearchComponent implements OnInit {
     ActivityRev(act:ActivityModel[]){
         this.Activities = [];
         
-        for(let item of act) if(item.user_name&&item.title)this.Activities.push(item);
-
+        for(let item of act) if(item.user_name&&item.title)
+        {   
+            let dupl:boolean = false;
+            for(let itemA of this.Activities)if(item.id==itemA.id)dupl=true;
+            if(!dupl)
+            this.Activities.push(item);
+        }
         if(this.Activities.length>0){
         this.lat = this.Activities[0].public_lat;
         this.lng = this.Activities[0].public_lng;
@@ -265,6 +270,11 @@ export class SearchComponent implements OnInit {
     nextWeek(date:Date){
         let nextDay = new Date(date);
         nextDay.setDate(date.getDate()+21);
+        return nextDay;
+    }
+    dateSwap(date:Date,count:number){
+        let nextDay = new Date(date);
+        nextDay.setDate(date.getDate()+count);
         return nextDay;
     }
     getDates(){

@@ -31,10 +31,11 @@
         <br>
         <button type="submit" class="btn btn-success btn-lg">Login</button>
       </form>
-
-      <button (click)="signIn('google')">google</button>
-      <button (click)="signIn('facebook')">facebook</button>
-      <button (click)="logout()">logout</button>
+      
+      <br>
+      <button class="button-google blue" (click)="signIn('google')">Sign In with Google</button>
+      <button class="button-facebook blue"(click)="signIn('facebook')">Sign In with Facebook</button>
+      <button class="button-logout" (click)="logout()">Logout</button>
       
       <div *ngIf="user">
         <table>

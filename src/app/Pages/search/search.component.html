@@ -50,9 +50,8 @@
                 </form> 
                 
             </div>
-           
+            <p *ngIf="Activities.length <= 0">No activities!</p>
             <div class="col-sm-12" id="card_div">
-               
                 <div class="cards" *ngIf="!isLoading && Activities.length > 0">
                         <h3 class="find_activ">Results: {{Activities.length}}</h3>
                     <div class="container-fluid">
@@ -62,7 +61,7 @@
                                 <h3 class="carddate">{{item.calendar[0].date | date: "dd MMM"}}</h3>
                                 <div class="avatar">
                                     <img class="profile-logo" alt="logo" [src]="Images['user'+item.user_id]?Images['user'+item.user_id]:'./app/images/man.jpg'">
-                                    <span class="profile-text">{{Users[item.user_id]?.name?getShortNames(Users[item.user_id]?.name):'Author'}}</span>
+                                    <span class="profile-text">{{item.user_name?getShortNames(item.user_name):'Author'}}</span>
                                 </div>
                                 <span class="cardshadow"></span>
                                 <a *ngIf="!showDP" [routerLink]="['/activity',item.id]"><span class="spanlink"></span></a>

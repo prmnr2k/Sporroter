@@ -61,11 +61,28 @@ export class LoginComponent implements OnInit{
     }
 
     signIn(provider){
-        if(!this.signStatus())
+        if(1)
         this.sub = this._auth.login(provider).subscribe(
           (data) => {
             console.log(data);this.user=data;
-            this.signStatus();}
+            this.signStatus();
+            
+
+            this.mainService.UserLoginGoogle(this.user.token)
+            .subscribe((data:TokenModel)=>{
+                console.log(`g_token`,data);
+                this.mainService.BaseInitAfterLogin(data);
+                this.router.navigate(['/']);
+            },
+            (err:any)=>{
+                this.isLoginErr = true;
+                this.isLoading = false;
+            }
+             );
+
+            }
+
+
         );
        
       }

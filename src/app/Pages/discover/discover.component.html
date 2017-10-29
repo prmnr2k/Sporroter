@@ -50,6 +50,7 @@
                                 <agm-marker *ngFor="let item of Activities; let i = index" [markerDraggable]="false" [title]="item.title" (markerClick)="markerClick(item)" [latitude]="item.public_lat" [longitude]="item.public_lng"></agm-marker> 
                         </agm-map>
                     -->
+                    <p *ngIf="Activities.length === 0">No activities!</p>
                     <h3>Récentes</h3>
                     <div class="container-fluid">
                         <div *ngFor="let item of Activities" class="col-xs-12 col-sm-6 pull-left">

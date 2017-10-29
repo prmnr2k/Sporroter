@@ -37,7 +37,7 @@ export class IndexComponent implements OnInit{
         limit: 4,
         title: '',
         address: '',
-        from_date:null
+        from_date: this.prevWeek(new Date())
     }
     ParamsSearch = {
         address: '',
@@ -56,6 +56,7 @@ export class IndexComponent implements OnInit{
       this._bsRangeValue = v;
     }
     @ViewChild('searchg') public searchElement: ElementRef;
+    
     constructor(private router: Router,
         private service: MainService,
         private params: ActivatedRoute,
@@ -95,7 +96,8 @@ export class IndexComponent implements OnInit{
     }
     GetFourActivities(){
         this.isLoading = true;
-        this.Params.from_date = new Date();
+        
+
         console.log(this.Params);
         this.service.GetAllActivities(this.Params)
         .subscribe((res:ActivityModel[])=>{
@@ -108,7 +110,6 @@ export class IndexComponent implements OnInit{
                     this.service.GetImageById(item.image_id)
                         .subscribe((image:Base64ImageModel)=>{
                             this.Images['act'+item.id]=image.base64;
-                            
                         })
                 }
                 this.service.GetUserById(item.user_id)

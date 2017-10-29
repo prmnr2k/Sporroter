@@ -65,6 +65,14 @@ import { CategoryModel } from '../models/category.model';
             return this.httpService.PostData('/auth/login',JSON.stringify(params));
         }
 
+        UserLoginGoogle(g_token:string){
+            let params = {
+                authorization_code: g_token
+            };
+            console.log(params);
+            return this.httpService.PostData('/auth/login_google',JSON.stringify(params));
+        }
+
         BaseInitAfterLogin(data:TokenModel){
             localStorage.setItem('token',data.token);
             this.httpService.BaseInitByToken(data.token);

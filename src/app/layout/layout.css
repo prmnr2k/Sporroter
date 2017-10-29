@@ -1018,6 +1018,108 @@ input[type=range] {
 }
 
 
+
+.button-google {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+}
+
+.button-google:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+
+.button-google:active {
+    box-shadow: inset 1px 1px 1px #DFDFDF;   
+}
+
+
+.button-google.blue {
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+.button-google.blue:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
+}
+
+.button-google.blue:active {
+    box-shadow: inset 0 2px 5px #2370FE;   
+}
+
+
+
+
+
+.button-facebook {
+    color: #444444;
+    background: #F3F3F3;
+    border: 1px #DADADA solid;
+    padding: 5px 10px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+}
+
+.button-facebook:hover {
+    border: 1px #C6C6C6 solid;
+    box-shadow: 1px 1px 1px #EAEAEA;
+    color: #333333;
+    background: #F7F7F7;
+}
+
+.button-facebook:active {
+    box-shadow: inset 1px 1px 1px #DFDFDF;   
+}
+
+/* Blue button as seen on translate.google.com*/
+.button-facebook.blue {
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 0 1px 0 #80B0FB;
+}
+
+.button-facebook.blue:hover {
+    border: 1px #2F5BB7 solid;
+    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
+    background: #3F83F1;
+}
+
+.button-facebook.blue:active {
+    box-shadow: inset 0 2px 5px #2370FE;   
+}
+
+
+.button-logout{
+background-color: #eb6996;
+color:white;
+padding: 7px;
+padding-left: 12px;
+padding-right: 12px;
+border-radius: 5px;
+}
+
+.button-logout:hover{
+    background-color: #f04d84;
+    color:black;
+}
+
+
+
 /* Activities */
 .my_ad_header{
     max-width: 80%;
