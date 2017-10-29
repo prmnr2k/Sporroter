@@ -114,9 +114,14 @@ export class DiscoverComponent implements OnInit{
             
             this.Categories = this.service.GetAllCategoriesAsArrayCategory();
 
-            if(this.Params.category || this.Params.sub_category){
-                this.MyCategory = this.Categories.find(obj=>obj.value == (this.Params.sub_category?this.Params.sub_category : this.Params.category));
+            if( this.Params.sub_category){
+                this.MyCategory.name = this.Params.sub_category;
             }
+            else if(this.Params.category &&!this.Params.sub_category){
+                 this.MyCategory = this.Categories.find(obj=>obj.value == (this.Params.sub_category?this.Params.sub_category : this.Params.category));
+                
+            }
+           
         });
         this.CreateAutocompleteMap();
         this.GetAllActivities();
@@ -222,7 +227,7 @@ export class DiscoverComponent implements OnInit{
     CategoryChanged($event:CategoryModel){
         if($event.parent){
         this.Params.category = $event.parent?$event.parent:$event.value;
-        this.Params.sub_category = $event.parent?$event.value:null;}
+        this.Params.sub_category = $event.parent?$event.parent+":"+$event.name:null;}
         else {
             this.Params.category = "";
             this.Params.sub_category = "";}
@@ -238,7 +243,7 @@ export class DiscoverComponent implements OnInit{
     }
     nextWeek(date:Date){
         let nextDay = new Date(date);
-        nextDay.setDate(date.getDate()+10);
+        nextDay.setDate(date.getDate()+21);
         return nextDay;
     }
     prevWeek(date:Date){

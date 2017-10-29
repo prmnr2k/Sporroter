@@ -197,7 +197,7 @@ export class EditActivityComponent implements OnInit{
         this.MyCategory = $event;
         console.log(this.MyCategory);
         this.Activity.category = this.MyCategory.parent;
-        this.Activity.sub_category = this.MyCategory.value;
+        this.Activity.sub_category = $event.parent+":"+$event.name;;
         console.log(this.Activity);
     }
 

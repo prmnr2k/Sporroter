@@ -265,7 +265,7 @@ export class CreateActivityComponent implements OnInit {
     }
     CategoryChanged($event:CategoryModel){
         this.Activity.category = $event.parent;
-        this.Activity.sub_category = $event.value;
+        this.Activity.sub_category = $event.parent+":"+$event.name;
         console.log(this.Activity);
     }
 

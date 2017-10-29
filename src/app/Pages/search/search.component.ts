@@ -226,7 +226,7 @@ export class SearchComponent implements OnInit {
         }
     }
     autocompleListFormatter = (data: CategoryModel) : SafeHtml => {
-        console.log(`autocompleListFormatter`);
+       // console.log(`autocompleListFormatter`,data);
         let html =  `<span><b>${data.name}</b></span>`;
         if(data.parent)html = `<span>${data.parent} : <b>${data.name}</b></span>`;
         return this._sanitizer.bypassSecurityTrustHtml(html);
@@ -234,7 +234,7 @@ export class SearchComponent implements OnInit {
     CategoryChanged($event:CategoryModel){
         if($event.parent){
         this.Params.category = $event.parent?$event.parent:$event.value;
-        this.Params.sub_category = $event.parent?$event.value:null;}
+        this.Params.sub_category = $event.parent?$event.parent+":"+$event.name:null;}
         else {
             this.Params.category = "";
             this.Params.sub_category = "";
@@ -264,8 +264,17 @@ export class SearchComponent implements OnInit {
     }
     nextWeek(date:Date){
         let nextDay = new Date(date);
-        nextDay.setDate(date.getDate()+10);
+        nextDay.setDate(date.getDate()+21);
         return nextDay;
+    }
+    getDates(){
+        let date1 = new Date(this.Params.from_date);
+        let string1 = (date1.getMonth()+1)+`/`+(date1.getDate())+`/`+(date1.getFullYear());
+
+        let date2 = new Date(this.Params.to_date);
+        let string2 = (date2.getMonth()+1)+`/`+(date2.getDate())+`/`+(date2.getFullYear());
+
+        return string1+` - `+string2;
     }
    
     

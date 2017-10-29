@@ -20,7 +20,7 @@
                     </div>
                    
                     <div class="form-group">
-                            <input ngui-auto-complete autocomplete="off" [max-num-list]="7" [auto-select-first-item]="true" [select-on-blur]="true" [source]="Categories" [list-formatter]="autocompleListFormatter" value-property-name="value" display-property-name="name" class="form-control input-withicon input-lg" name="category" (valueChanged)="CategoryChanged($event)" placeholder="Sport">
+                            <input ngui-auto-complete autocomplete="off" [max-num-list]="7" [auto-select-first-item]="true" [select-on-blur]="true" [source]="Categories" [list-formatter]="autocompleListFormatter" value-property-name="value" display-property-name="value" class="form-control input-withicon input-lg" name="category" (valueChanged)="CategoryChanged($event)" placeholder="Sport">
                             <span  class="material-icons input-icon">loyalty</span>
                         </div>
                     <!--
@@ -30,7 +30,7 @@
                     </div>
                     -->
                     <div class="form-group" style="width:100%;" *ngIf="isAdvanced">
-                        <input class="form-control input-withicon input-lg" readonly (onShown)="showDP = !showDP" (onHidden)="showDP = !showDP" bsDaterangepicker  [(bsValue)]="bsRangeValue" [bsConfig]="bsConfig" (ngModelChange)="bsRangeValue = $event" [value]="(Params.from_date|date:'MM/yyyy')" style="background-color:white;">           
+                        <input class="form-control input-withicon input-lg" readonly (onShown)="showDP = !showDP" (onHidden)="showDP = !showDP" bsDaterangepicker  [(bsValue)]="bsRangeValue" [bsConfig]="bsConfig" (ngModelChange)="bsRangeValue = $event" [value]=" getDates()" style="background-color:white;">           
                             <span  class="material-icons input-icon">today</span>        
                     </div>
 

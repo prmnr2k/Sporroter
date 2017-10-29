@@ -675,7 +675,7 @@ import { CategoryModel } from '../models/category.model';
             while(iter = keys.next().value){
                 for(let item of categories.get(iter)){
                     result.push({
-                        value:iter + ":" + item,
+                        value:iter + " " + item,
                         name:item,
                         parent:iter
                     });

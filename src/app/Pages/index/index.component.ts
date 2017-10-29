@@ -159,12 +159,12 @@ export class IndexComponent implements OnInit{
     }
     CategoryChanged($event:CategoryModel){
         this.ParamsSearch.category = $event.parent?$event.parent:$event.value;
-        this.ParamsSearch.sub_category = $event.parent?$event.value:'';
+        this.ParamsSearch.sub_category = $event.parent?$event.parent+":"+$event.name:'';
         console.log(this.Params);
     }
     nextWeek(date:Date){
         let nextDay = new Date(date);
-        nextDay.setDate(date.getDate()+10);
+        nextDay.setDate(date.getDate()+21);
         return nextDay;
     }
     prevWeek(date:Date){
