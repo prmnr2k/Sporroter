@@ -1583,7 +1583,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ "../../../../../src/app/Pages/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"wrapper row2\">\r\n  \r\n</div>\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<div class=\"wrapper row3\">\r\n  <main id=\"container\" class=\"clear\">\r\n    <!-- container body -->\r\n    <div class=\"loading\" *ngIf=\"isLoading\"></div>\r\n    <div class=\"login_form\" *ngIf=\"!isLoading\">\r\n      <h1>Login</h1>\r\n      \r\n      <div *ngIf=\"isLoginErr\">\r\n        <h2 class=\"error-msg\">Incorrect email or password!</h2>\r\n      </div>\r\n      <form (ngSubmit)=\"OnLoginButtonClick()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"login\">Email</label>\r\n          <input type=\"text\" class=\"form-control input-withicon input-lg\" name=\"login\" [ngModel]=\"loginData.login\" (ngModelChange)=\"loginData.login=$event\">\r\n          <span class=\"material-icons input-icon\">email</span>\r\n        </div>\r\n        <br>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control input-withicon input-lg\" name=\"password\" [ngModel]=\"loginData.password\" (ngModelChange)=\"loginData.password=$event\">\r\n          <span class=\"material-icons input-icon\">security</span>\r\n        </div>\r\n        <br>\r\n        <button type=\"submit\" class=\"btn btn-success btn-lg\">Login</button>\r\n      </form>\r\n      \r\n      <br>\r\n      <button class=\"button-google blue\" (click)=\"signIn('google')\">Sign In with Google</button>\r\n      <button class=\"button-facebook blue\"(click)=\"signIn('facebook')\">Sign In with Facebook</button>\r\n      <button class=\"button-logout\" (click)=\"logout()\">Logout</button>\r\n      \r\n      <div *ngIf=\"user\">\r\n        <table>\r\n          <tr>\r\n            <td>Name:</td>\r\n            <td>{{user.name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Email</td>\r\n            <td>{{user.email}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>UID</td>\r\n            <td>{{user.uid}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Provider</td>\r\n            <td>{{user.provider}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Image</td>\r\n            <td>{{user.image}}</td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <!-- ########################################################################################## -->\r\n    <!-- / container body -->\r\n    <div class=\"clear\"></div>\r\n  </main>\r\n</div>"
+module.exports = "\r\n\r\n<div class=\"wrapper row2\">\r\n  \r\n</div>\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<div class=\"wrapper row3\">\r\n  <main id=\"container\" class=\"clear\">\r\n    <!-- container body -->\r\n    <div class=\"loading\" *ngIf=\"isLoading\"></div>\r\n    <div class=\"login_form\" *ngIf=\"!isLoading\">\r\n      <h1>Login</h1>\r\n      \r\n      <div *ngIf=\"isLoginErr\">\r\n        <h2 class=\"error-msg\">Incorrect email or password!</h2>\r\n      </div>\r\n      <form (ngSubmit)=\"OnLoginButtonClick()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"login\">Email</label>\r\n          <input type=\"text\" class=\"form-control input-withicon input-lg\" name=\"login\" [ngModel]=\"loginData.login\" (ngModelChange)=\"loginData.login=$event\">\r\n          <span class=\"material-icons input-icon\">email</span>\r\n        </div>\r\n        <br>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control input-withicon input-lg\" name=\"password\" [ngModel]=\"loginData.password\" (ngModelChange)=\"loginData.password=$event\">\r\n          <span class=\"material-icons input-icon\">security</span>\r\n        </div>\r\n        <br>\r\n        <button type=\"submit\" class=\"btn btn-success btn-lg\">Login</button>\r\n      </form>\r\n      \r\n      <br>\r\n      <button class=\"button-google blue\" (click)=\"signIn('google')\">Sign In with Google</button>\r\n        <button *ngIf=\"signStatus()=='google'\" class=\"button-logout\" (click)=\"logout('google')\">Google Logout</button>\r\n      <br>\r\n\r\n      <button class=\"button-facebook blue\"(click)=\"signIn('facebook')\">Sign In with Facebook</button>\r\n      <button *ngIf=\"signStatus()=='facebook'\" class=\"button-logout\" (click)=\"logout('facebook')\">Facebook Logout</button>\r\n      \r\n      <div *ngIf=\"user\">\r\n        <table>\r\n          <tr>\r\n            <td>Name:</td>\r\n            <td>{{user.name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Email</td>\r\n            <td>{{user.email}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>UID</td>\r\n            <td>{{user.uid}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Provider</td>\r\n            <td>{{user.provider}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Image</td>\r\n            <td>{{user.image}}</td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <!-- ########################################################################################## -->\r\n    <!-- / container body -->\r\n    <div class=\"clear\"></div>\r\n  </main>\r\n</div>"
 
 /***/ }),
 
@@ -1648,11 +1648,10 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.signIn = function (provider) {
         var _this = this;
-        if (1)
-            this.sub = this._auth.login(provider).subscribe(function (data) {
-                console.log(data);
-                _this.user = data;
-                _this.signStatus();
+        this.sub = this._auth.login(provider).subscribe(function (data) {
+            console.log(data);
+            _this.user = data;
+            if (_this.signStatus() === "google")
                 _this.mainService.UserLoginGoogle(_this.user.token)
                     .subscribe(function (data) {
                     console.log("g_token", data);
@@ -1662,9 +1661,21 @@ var LoginComponent = (function () {
                     _this.isLoginErr = true;
                     _this.isLoading = false;
                 });
-            });
+            else if (_this.signStatus() === "facebook") {
+                console.log("fb get token");
+                _this.mainService.UserLoginFacebook(_this.user.token)
+                    .subscribe(function (data) {
+                    console.log("f_token", data);
+                    _this.mainService.BaseInitAfterLogin(data);
+                    _this.router.navigate(['/']);
+                }, function (err) {
+                    _this.isLoginErr = true;
+                    _this.isLoading = false;
+                });
+            }
+        });
     };
-    LoginComponent.prototype.logout = function () {
+    LoginComponent.prototype.logout = function (provider) {
         var _this = this;
         this.sub = this._auth.logout().subscribe(function (data) {
             console.log(data);
@@ -2774,7 +2785,8 @@ module.exports = "<nav class=\"container-fluid header\">\r\n  <h1><a class=\"spo
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_main_service__ = __webpack_require__("../../../../../src/app/services/main.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_main_service__ = __webpack_require__("../../../../../src/app/services/main.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2786,10 +2798,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
     //me: UserModel = new UserModel(null,"","","","",null,null); 
-    function AppComponent(mainService) {
+    function AppComponent(mainService, router) {
         this.mainService = mainService;
+        this.router = router;
         this.isLoggedIn = false;
         this.isProf = false;
     }
@@ -2809,6 +2823,7 @@ var AppComponent = (function () {
     AppComponent.prototype.Logout = function () {
         //console.log();
         this.mainService.Logout();
+        this.router.navigate(['/']);
     };
     return AppComponent;
 }());
@@ -2817,10 +2832,10 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html")
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_main_service__["a" /* MainService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_main_service__["a" /* MainService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_main_service__["a" /* MainService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -3457,10 +3472,17 @@ var MainService = (function () {
     };
     MainService.prototype.UserLoginGoogle = function (g_token) {
         var params = {
-            authorization_code: g_token
+            access_token: g_token
         };
         console.log(params);
         return this.httpService.PostData('/auth/login_google', JSON.stringify(params));
+    };
+    MainService.prototype.UserLoginFacebook = function (f_token) {
+        var params = {
+            access_token: f_token
+        };
+        console.log(params);
+        return this.httpService.PostData('/auth/login_facebook', JSON.stringify(params));
     };
     MainService.prototype.BaseInitAfterLogin = function (data) {
         var _this = this;

@@ -61,13 +61,12 @@ export class LoginComponent implements OnInit{
     }
 
     signIn(provider){
-        if(1)
+        
         this.sub = this._auth.login(provider).subscribe(
           (data) => {
             console.log(data);this.user=data;
-            this.signStatus();
             
-
+            if(this.signStatus()===`google`)
             this.mainService.UserLoginGoogle(this.user.token)
             .subscribe((data:TokenModel)=>{
                 console.log(`g_token`,data);
@@ -79,17 +78,32 @@ export class LoginComponent implements OnInit{
                 this.isLoading = false;
             }
              );
+            
+
+            else if(this.signStatus()===`facebook`){
+            console.log(`fb get token`);
+            this.mainService.UserLoginFacebook(this.user.token)
+            .subscribe((data:TokenModel)=>{
+                console.log(`f_token`,data);
+                this.mainService.BaseInitAfterLogin(data);
+                this.router.navigate(['/']);
+            },
+            (err:any)=>{
+                this.isLoginErr = true;
+                this.isLoading = false;
+            }
+             );
+
 
             }
+    });
+}
 
-
-        );
-       
-      }
-
-      logout(){
+      logout(provider){
         this.sub =this._auth.logout().subscribe(
-          (data)=>{console.log(data);this.user=null;
+          (data)=>{
+            console.log(data);
+            this.user=null;
             this.signStatus();}
         );
      

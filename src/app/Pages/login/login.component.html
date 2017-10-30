@@ -34,8 +34,11 @@
       
       <br>
       <button class="button-google blue" (click)="signIn('google')">Sign In with Google</button>
+        <button *ngIf="signStatus()=='google'" class="button-logout" (click)="logout('google')">Google Logout</button>
+      <br>
+
       <button class="button-facebook blue"(click)="signIn('facebook')">Sign In with Facebook</button>
-      <button class="button-logout" (click)="logout()">Logout</button>
+      <button *ngIf="signStatus()=='facebook'" class="button-logout" (click)="logout('facebook')">Facebook Logout</button>
       
       <div *ngIf="user">
         <table>

@@ -14,7 +14,8 @@ export class AppComponent implements OnInit{
   isProf:boolean = false;
   //me: UserModel = new UserModel(null,"","","","",null,null); 
   constructor(
-      private mainService: MainService){}
+      private mainService: MainService,
+      private router: Router){}
   ngOnInit(){
       this.mainService.onAuthChange$.subscribe(bool => {
               this.isLoggedIn = bool;
@@ -35,5 +36,6 @@ export class AppComponent implements OnInit{
   Logout(){
       //console.log();
       this.mainService.Logout();
+      this.router.navigate(['/']);
   }
 }

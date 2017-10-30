@@ -67,10 +67,18 @@ import { CategoryModel } from '../models/category.model';
 
         UserLoginGoogle(g_token:string){
             let params = {
-                authorization_code: g_token
+                access_token: g_token
             };
             console.log(params);
             return this.httpService.PostData('/auth/login_google',JSON.stringify(params));
+        }
+
+        UserLoginFacebook(f_token:string){
+            let params = {
+                access_token: f_token
+            };
+            console.log(params);
+            return this.httpService.PostData('/auth/login_facebook',JSON.stringify(params));
         }
 
         BaseInitAfterLogin(data:TokenModel){
@@ -101,6 +109,7 @@ import { CategoryModel } from '../models/category.model';
             this.httpService.headers.delete('Authorization');
             this.onAuthChange$.next(false);
             localStorage.removeItem('token');
+
             //window.localStorage.removeItem('token');
             return this.httpService.PostData("/auth/logout","");
             
