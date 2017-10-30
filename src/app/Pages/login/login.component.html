@@ -32,14 +32,18 @@
         <button type="submit" class="btn btn-success btn-lg">Login</button>
       </form>
       
-      <br>
-      <button class="button-google blue" (click)="signIn('google')">Sign In with Google</button>
-        <button *ngIf="signStatus()=='google'" class="button-logout" (click)="logout('google')">Google Logout</button>
-      <br>
+      <div class = "socials">
+      <h1>Use Socials</h1>
+      <button class="button-google blue" (click)="signIn('google')"><span  class="material-icons input-icon">loyalty</span>Sign In with Google</button>
+      
+      <button *ngIf="signStatus()=='google'" class="button-logout" (click)="logout('google')">Google Account Logout</button>
+      <br><br>
 
       <button class="button-facebook blue"(click)="signIn('facebook')">Sign In with Facebook</button>
-      <button *ngIf="signStatus()=='facebook'" class="button-logout" (click)="logout('facebook')">Facebook Logout</button>
-      
+      <button *ngIf="signStatus()=='facebook'" class="button-logout" (click)="logout('facebook')">Facebook Account Logout</button>
+      <br> <br>
+    </div>
+      <!--
       <div *ngIf="user">
         <table>
           <tr>
@@ -64,7 +68,7 @@
           </tr>
         </table>
       </div>
-
+    -->
 
 
     </div>

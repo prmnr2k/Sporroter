@@ -18,7 +18,7 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 
 let providers = {
     "google": {
-      //"clientId": "407186828884-df38rqtn1sbgla2v3qu103kcjdi8l5o8.apps.googleusercontent.com"
+     // "clientId": "407186828884-df38rqtn1sbgla2v3qu103kcjdi8l5o8.apps.googleusercontent.com"
       "clientId": "844170394110-nfpt9eed64b8ak22k1d3qrqme1qdsvb3.apps.googleusercontent.com"
     },
     "linkedin": {

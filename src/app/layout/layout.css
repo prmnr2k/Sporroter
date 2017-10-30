@@ -1018,12 +1018,20 @@ input[type=range] {
 }
 
 
+.socials{
+   
+    border: 2px #3EE1AB dotted;
+    border-radius: 5px;
+    margin: 15px;
+}
 
 .button-google {
+    width: 40%;
     color: #444444;
     background: #F3F3F3;
     border: 1px #DADADA solid;
-    padding: 5px 10px;
+    padding: 12px 12px;
+    margin-left: 20px;
     border-radius: 2px;
     font-weight: bold;
     font-size: 12pt;
@@ -1035,6 +1043,7 @@ input[type=range] {
     box-shadow: 1px 1px 1px #EAEAEA;
     color: #333333;
     background: #F7F7F7;
+    padding: 15px 14px;
 }
 
 .button-google:active {
@@ -1064,14 +1073,17 @@ input[type=range] {
 
 
 .button-facebook {
+    width: 40%;
     color: #444444;
     background: #F3F3F3;
     border: 1px #DADADA solid;
-    padding: 5px 10px;
+    padding: 12px 12px;
+    margin-left: 20px;
     border-radius: 2px;
     font-weight: bold;
     font-size: 12pt;
     outline: none;
+    
 }
 
 .button-facebook:hover {
@@ -1079,6 +1091,7 @@ input[type=range] {
     box-shadow: 1px 1px 1px #EAEAEA;
     color: #333333;
     background: #F7F7F7;
+    padding: 15px 14px;
 }
 
 .button-facebook:active {
@@ -1107,7 +1120,7 @@ input[type=range] {
 .button-logout{
 background-color: #eb6996;
 color:white;
-padding: 7px;
+padding: 6px;
 padding-left: 12px;
 padding-right: 12px;
 border-radius: 5px;

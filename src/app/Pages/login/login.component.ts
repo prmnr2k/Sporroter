@@ -71,7 +71,9 @@ export class LoginComponent implements OnInit{
             .subscribe((data:TokenModel)=>{
                 console.log(`g_token`,data);
                 this.mainService.BaseInitAfterLogin(data);
+                if(this.mainService.getToken())
                 this.router.navigate(['/']);
+                location.reload();
             },
             (err:any)=>{
                 this.isLoginErr = true;
@@ -86,7 +88,10 @@ export class LoginComponent implements OnInit{
             .subscribe((data:TokenModel)=>{
                 console.log(`f_token`,data);
                 this.mainService.BaseInitAfterLogin(data);
-                this.router.navigate(['/']);
+
+                if(this.mainService.getToken())
+                    this.router.navigate(['/']);
+                    location.reload();
             },
             (err:any)=>{
                 this.isLoginErr = true;

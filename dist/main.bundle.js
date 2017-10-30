@@ -1583,7 +1583,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 /***/ "../../../../../src/app/Pages/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"wrapper row2\">\r\n  \r\n</div>\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<div class=\"wrapper row3\">\r\n  <main id=\"container\" class=\"clear\">\r\n    <!-- container body -->\r\n    <div class=\"loading\" *ngIf=\"isLoading\"></div>\r\n    <div class=\"login_form\" *ngIf=\"!isLoading\">\r\n      <h1>Login</h1>\r\n      \r\n      <div *ngIf=\"isLoginErr\">\r\n        <h2 class=\"error-msg\">Incorrect email or password!</h2>\r\n      </div>\r\n      <form (ngSubmit)=\"OnLoginButtonClick()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"login\">Email</label>\r\n          <input type=\"text\" class=\"form-control input-withicon input-lg\" name=\"login\" [ngModel]=\"loginData.login\" (ngModelChange)=\"loginData.login=$event\">\r\n          <span class=\"material-icons input-icon\">email</span>\r\n        </div>\r\n        <br>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control input-withicon input-lg\" name=\"password\" [ngModel]=\"loginData.password\" (ngModelChange)=\"loginData.password=$event\">\r\n          <span class=\"material-icons input-icon\">security</span>\r\n        </div>\r\n        <br>\r\n        <button type=\"submit\" class=\"btn btn-success btn-lg\">Login</button>\r\n      </form>\r\n      \r\n      <br>\r\n      <button class=\"button-google blue\" (click)=\"signIn('google')\">Sign In with Google</button>\r\n        <button *ngIf=\"signStatus()=='google'\" class=\"button-logout\" (click)=\"logout('google')\">Google Logout</button>\r\n      <br>\r\n\r\n      <button class=\"button-facebook blue\"(click)=\"signIn('facebook')\">Sign In with Facebook</button>\r\n      <button *ngIf=\"signStatus()=='facebook'\" class=\"button-logout\" (click)=\"logout('facebook')\">Facebook Logout</button>\r\n      \r\n      <div *ngIf=\"user\">\r\n        <table>\r\n          <tr>\r\n            <td>Name:</td>\r\n            <td>{{user.name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Email</td>\r\n            <td>{{user.email}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>UID</td>\r\n            <td>{{user.uid}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Provider</td>\r\n            <td>{{user.provider}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Image</td>\r\n            <td>{{user.image}}</td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n\r\n\r\n\r\n    </div>\r\n\r\n    <!-- ########################################################################################## -->\r\n    <!-- / container body -->\r\n    <div class=\"clear\"></div>\r\n  </main>\r\n</div>"
+module.exports = "\r\n\r\n<div class=\"wrapper row2\">\r\n  \r\n</div>\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<!-- ################################################################################################ -->\r\n<div class=\"wrapper row3\">\r\n  <main id=\"container\" class=\"clear\">\r\n    <!-- container body -->\r\n    <div class=\"loading\" *ngIf=\"isLoading\"></div>\r\n    <div class=\"login_form\" *ngIf=\"!isLoading\">\r\n      <h1>Login</h1>\r\n      \r\n      <div *ngIf=\"isLoginErr\">\r\n        <h2 class=\"error-msg\">Incorrect email or password!</h2>\r\n      </div>\r\n      <form (ngSubmit)=\"OnLoginButtonClick()\">\r\n        <div class=\"form-group\">\r\n          <label for=\"login\">Email</label>\r\n          <input type=\"text\" class=\"form-control input-withicon input-lg\" name=\"login\" [ngModel]=\"loginData.login\" (ngModelChange)=\"loginData.login=$event\">\r\n          <span class=\"material-icons input-icon\">email</span>\r\n        </div>\r\n        <br>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control input-withicon input-lg\" name=\"password\" [ngModel]=\"loginData.password\" (ngModelChange)=\"loginData.password=$event\">\r\n          <span class=\"material-icons input-icon\">security</span>\r\n        </div>\r\n        <br>\r\n        <button type=\"submit\" class=\"btn btn-success btn-lg\">Login</button>\r\n      </form>\r\n      \r\n      <div class = \"socials\">\r\n      <h1>Use Socials</h1>\r\n      <button class=\"button-google blue\" (click)=\"signIn('google')\"><span  class=\"material-icons input-icon\">loyalty</span>Sign In with Google</button>\r\n      \r\n      <button *ngIf=\"signStatus()=='google'\" class=\"button-logout\" (click)=\"logout('google')\">Google Account Logout</button>\r\n      <br><br>\r\n\r\n      <button class=\"button-facebook blue\"(click)=\"signIn('facebook')\">Sign In with Facebook</button>\r\n      <button *ngIf=\"signStatus()=='facebook'\" class=\"button-logout\" (click)=\"logout('facebook')\">Facebook Account Logout</button>\r\n      <br> <br>\r\n    </div>\r\n      <!--\r\n      <div *ngIf=\"user\">\r\n        <table>\r\n          <tr>\r\n            <td>Name:</td>\r\n            <td>{{user.name}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Email</td>\r\n            <td>{{user.email}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>UID</td>\r\n            <td>{{user.uid}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Provider</td>\r\n            <td>{{user.provider}}</td>\r\n          </tr>\r\n          <tr>\r\n            <td>Image</td>\r\n            <td>{{user.image}}</td>\r\n          </tr>\r\n        </table>\r\n      </div>\r\n    -->\r\n\r\n\r\n    </div>\r\n\r\n    <!-- ########################################################################################## -->\r\n    <!-- / container body -->\r\n    <div class=\"clear\"></div>\r\n  </main>\r\n</div>"
 
 /***/ }),
 
@@ -1656,7 +1656,9 @@ var LoginComponent = (function () {
                     .subscribe(function (data) {
                     console.log("g_token", data);
                     _this.mainService.BaseInitAfterLogin(data);
-                    _this.router.navigate(['/']);
+                    if (_this.mainService.getToken())
+                        _this.router.navigate(['/']);
+                    location.reload();
                 }, function (err) {
                     _this.isLoginErr = true;
                     _this.isLoading = false;
@@ -1667,7 +1669,9 @@ var LoginComponent = (function () {
                     .subscribe(function (data) {
                     console.log("f_token", data);
                     _this.mainService.BaseInitAfterLogin(data);
-                    _this.router.navigate(['/']);
+                    if (_this.mainService.getToken())
+                        _this.router.navigate(['/']);
+                    location.reload();
                 }, function (err) {
                     _this.isLoginErr = true;
                     _this.isLoading = false;
@@ -2884,7 +2888,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var providers = {
     "google": {
-        //"clientId": "407186828884-df38rqtn1sbgla2v3qu103kcjdi8l5o8.apps.googleusercontent.com"
+        // "clientId": "407186828884-df38rqtn1sbgla2v3qu103kcjdi8l5o8.apps.googleusercontent.com"
         "clientId": "844170394110-nfpt9eed64b8ak22k1d3qrqme1qdsvb3.apps.googleusercontent.com"
     },
     "linkedin": {
