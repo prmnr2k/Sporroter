@@ -1020,110 +1020,23 @@ input[type=range] {
 
 .socials{
    
-    border: 2px #3EE1AB dotted;
+    border: 2px #eb6996 dotted;
     border-radius: 5px;
-    margin: 15px;
-}
-
-.button-google {
-    width: 40%;
-    color: #444444;
-    background: #F3F3F3;
-    border: 1px #DADADA solid;
-    padding: 12px 12px;
-    margin-left: 20px;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 12pt;
-    outline: none;
-}
-
-.button-google:hover {
-    border: 1px #C6C6C6 solid;
-    box-shadow: 1px 1px 1px #EAEAEA;
-    color: #333333;
-    background: #F7F7F7;
-    padding: 15px 14px;
-}
-
-.button-google:active {
-    box-shadow: inset 1px 1px 1px #DFDFDF;   
-}
-
-
-.button-google.blue {
-    color: white;
-    background: #4C8FFB;
-    border: 1px #3079ED solid;
-    box-shadow: inset 0 1px 0 #80B0FB;
-}
-
-.button-google.blue:hover {
-    border: 1px #2F5BB7 solid;
-    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-    background: #3F83F1;
-}
-
-.button-google.blue:active {
-    box-shadow: inset 0 2px 5px #2370FE;   
-}
-
-
-
-
-
-.button-facebook {
-    width: 40%;
-    color: #444444;
-    background: #F3F3F3;
-    border: 1px #DADADA solid;
-    padding: 12px 12px;
-    margin-left: 20px;
-    border-radius: 2px;
-    font-weight: bold;
-    font-size: 12pt;
-    outline: none;
-    
-}
-
-.button-facebook:hover {
-    border: 1px #C6C6C6 solid;
-    box-shadow: 1px 1px 1px #EAEAEA;
-    color: #333333;
-    background: #F7F7F7;
-    padding: 15px 14px;
-}
-
-.button-facebook:active {
-    box-shadow: inset 1px 1px 1px #DFDFDF;   
-}
-
-/* Blue button as seen on translate.google.com*/
-.button-facebook.blue {
-    color: white;
-    background: #4C8FFB;
-    border: 1px #3079ED solid;
-    box-shadow: inset 0 1px 0 #80B0FB;
-}
-
-.button-facebook.blue:hover {
-    border: 1px #2F5BB7 solid;
-    box-shadow: 0 1px 1px #EAEAEA, inset 0 1px 0 #5A94F1;
-    background: #3F83F1;
-}
-
-.button-facebook.blue:active {
-    box-shadow: inset 0 2px 5px #2370FE;   
+    margin-top: 15px;
+    margin-left: -20%;
+    width: 140%;
 }
 
 
 .button-logout{
-background-color: #eb6996;
-color:white;
-padding: 6px;
-padding-left: 12px;
-padding-right: 12px;
-border-radius: 5px;
+    background-color: #eb6996;
+    color:white;
+    padding: 10px 12px;
+    margin: 15px 20px;
+    border-radius: 5px;
+    width: calc(100% - 40px);
+    word-wrap: break-word;
+    word-break: break-all; 
 }
 
 .button-logout:hover{
@@ -1131,6 +1044,30 @@ border-radius: 5px;
     color:black;
 }
 
+
+
+.button-social {
+    width: calc(50% - 35px);
+    color: white;
+    background: #4C8FFB;
+    border: 1px #3079ED solid;
+    box-shadow: inset 1px 1px 1px #2370FE; 
+    padding: 12px 0px;
+    margin: 5px 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12pt;
+    outline: none;
+    word-wrap: break-word;
+    word-break: break-all; 
+}
+
+.button-social:hover {
+    border: 1px rgb(24, 194, 137) solid;
+    box-shadow: 1px 1px 1px rgb(24, 194, 137);
+    color: white;
+    background-color: #3EE1AB;
+}
 
 
 /* Activities */

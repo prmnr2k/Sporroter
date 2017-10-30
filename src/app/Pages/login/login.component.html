@@ -33,13 +33,12 @@
       </form>
       
       <div class = "socials">
-      <h1>Use Socials</h1>
-      <button class="button-google blue" (click)="signIn('google')"><span  class="material-icons input-icon">loyalty</span>Sign In with Google</button>
-      
-      <button *ngIf="signStatus()=='google'" class="button-logout" (click)="logout('google')">Google Account Logout</button>
-      <br><br>
+      <h1>Sign In With</h1>
+      <button class="button-social" style="margin-right: 10px" (click)="signIn('google')">Google</button>
+      <button class="button-social" style="margin-left: 10px" (click)="signIn('facebook')">Facebook</button>      
+      <br>
 
-      <button class="button-facebook blue"(click)="signIn('facebook')">Sign In with Facebook</button>
+      <button *ngIf="signStatus()=='google'" class="button-logout" (click)="logout('google')">Google Account Logout</button>
       <button *ngIf="signStatus()=='facebook'" class="button-logout" (click)="logout('facebook')">Facebook Account Logout</button>
       <br> <br>
     </div>

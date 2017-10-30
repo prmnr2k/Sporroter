@@ -34,9 +34,9 @@
                             <a (click)="SetMenuItem('bookings')" *ngIf="MenuItem!='bookings'">Bookings</a>
                         </h2>
                     </li>
-                    <li [ngClass]="MenuItem=='activity'?'active':''">
+                    <li *ngIf="User.user_type!='client'&&User.user_type" [ngClass]="MenuItem=='activity'?'active':''">
                         <h2>
-                            <span *ngIf="MenuItem=='activity'">My Activities</span>
+                            <span *ngIf="MenuItem=='activity' ">My Activities</span>
                             <a (click)="SetMenuItem('activity')" *ngIf="MenuItem!='activity'">My Activities</a>
                         </h2>
                     </li>
