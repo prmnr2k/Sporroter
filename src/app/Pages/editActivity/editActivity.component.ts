@@ -37,6 +37,7 @@ export class EditActivityComponent implements OnInit{
     isEditErr: boolean = false;
     LoadAddress: boolean = false;
     needReload = false;
+    Me:UserModel = new UserModel();
     @ViewChild('searchg', { read: ElementRef }) searchElement: ElementRef;
 
     constructor(
@@ -74,10 +75,11 @@ export class EditActivityComponent implements OnInit{
                     this.AfterGettingActivity(act);
                     this.CreateAutocompleteMap();
                 })
-            this.service.GetMe()
-                .subscribe((res:UserModel)=>{   
-                            
-                })   
+                this.service.GetMe()
+                .subscribe((res:UserModel)=>{
+                    this.Me = res;
+                    
+                })  
         
         });
         

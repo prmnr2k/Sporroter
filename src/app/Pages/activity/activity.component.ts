@@ -118,6 +118,7 @@ export class ActivityComponent implements OnInit{
                 })
         });
 
+        console.log(`me = `,this.Me,`  activ = `, this.Activity);
       
         
     }

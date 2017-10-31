@@ -1,5 +1,5 @@
 <div class="wrapper row3">
-    <main id="container" class="clear">
+    <main *ngIf="Me.id == actId" id="container" class="clear">
         <div class="row">
             <div class="loading" *ngIf="isLoading"></div>
             <div class="col-md-12" *ngIf="!isLoading">
