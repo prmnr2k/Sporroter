@@ -78,10 +78,12 @@ export class EditActivityComponent implements OnInit{
                 this.service.GetMe()
                 .subscribe((res:UserModel)=>{
                     this.Me = res;
-                    
+                    console.log(`me and activ = `,this.Me, this.actId);
                 })  
         
         });
+
+        
         
     }
 

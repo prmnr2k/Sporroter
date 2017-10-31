@@ -1206,6 +1206,7 @@ var EditActivityComponent = (function () {
             _this.service.GetMe()
                 .subscribe(function (res) {
                 _this.Me = res;
+                console.log("me and activ = ", _this.Me, _this.actId);
             });
         });
     };
