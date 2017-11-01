@@ -115,7 +115,7 @@ export class SearchComponent implements OnInit {
             
         });
 
-        console.log(`card_div = `,this.wSize);
+        ////console.log(`card_div = `,this.wSize);
 
     }
 
@@ -152,16 +152,16 @@ export class SearchComponent implements OnInit {
         this.lat = $event.coords.lat;
         this.lng = $event.coords.lng;
 
-        console.log("coords");
-        console.log(this.lat);
-        console.log(this.lng);
+        ////console.log("coords");
+        //console.log(this.lat);
+        //console.log(this.lng);
  
       }
 
       GetAllActivities(){
         this.isLoading = true;
         if(this.searchElement.nativeElement.value==""||!this.searchElement.nativeElement.value){
-            console.log(`NO address`);
+            //console.log(`NO address`);
             this.Params.public_lat = null;
             this.Params.public_lng = null;
             }
@@ -173,11 +173,11 @@ export class SearchComponent implements OnInit {
        
         
 
-        console.log(this.Params);
+        //console.log(this.Params);
    
         this.service.GetAllActivities(this.Params)
         .subscribe((res:ActivityModel[])=>{
-            console.log(res);
+            ////console.log(res);
             let activ:ActivityModel[] = res;
             for(let item of activ){
                 if(item.image_id){
@@ -226,12 +226,12 @@ export class SearchComponent implements OnInit {
     FromDateChanged($event){
         let date:Date = new Date($event);
         if(date){
-            console.log($event);
+            ////console.log($event);
             this.Params.from_date = $event;
         }
     }
     autocompleListFormatter = (data: CategoryModel) : SafeHtml => {
-       // console.log(`autocompleListFormatter`,data);
+       // ////console.log(`autocompleListFormatter`,data);
         let html =  `<span><b>${data.name}</b></span>`;
         if(data.parent)html = `<span>${data.parent} : <b>${data.name}</b></span>`;
         return this._sanitizer.bypassSecurityTrustHtml(html);
@@ -244,10 +244,10 @@ export class SearchComponent implements OnInit {
             this.Params.category = "";
             this.Params.sub_category = "";
         }
-        console.log(this.Params);
+        ////console.log(this.Params);
     }
     markerClick(item:ActivityModel){
-            console.log(`click`,item.id);
+            ////console.log(`click`,item.id);
             this.router.navigate(['/activity/',item.id]);
     }
 

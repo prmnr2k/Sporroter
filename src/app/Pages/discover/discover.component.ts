@@ -150,8 +150,9 @@ export class DiscoverComponent implements OnInit{
 
     GetAllActivities(){
         this.isLoading = true;
-        this.Params.from_date = this.bsRangeValue[0];
-        this.Params.to_date = this.bsRangeValue[1];
+
+        this.Params.from_date = this.dateSwap(this.bsRangeValue[0],-2);
+        this.Params.to_date = this.dateSwap(this.bsRangeValue[1],2);
         //this.Params.dates = [this.Start, this.Finish];
 
         if(this.searchElement.nativeElement.value==""||!this.searchElement.nativeElement.value){
@@ -163,14 +164,6 @@ export class DiscoverComponent implements OnInit{
         this.service.GetAllActivities(this.Params)
         .subscribe((res:ActivityModel[])=>{
             let activ:ActivityModel[] = res;
-            /*if(res.length>0){
-                this.lat = res[0].public_lat;
-                this.lng = res[0].public_lng;
-                }
-                else{
-                    this.lat = 48.8916733;
-                    this.lng = 2.3016161;
-                }*/
             for(let item of activ){
                 if(item.image_id){
                     this.service.GetImageById(item.image_id)
@@ -240,7 +233,7 @@ ActivityRev(act:ActivityModel[]){
             this.Params.category = "";
             this.Params.sub_category = "";}
         
-        console.log(this.Params);
+        //console.log(this.Params);
     }
     getShortNames(name:string){
         return this.service.GetShortName(name,this.lengthShortName);
@@ -267,6 +260,11 @@ ActivityRev(act:ActivityModel[]){
         let string2 = (date2.getMonth()+1)+`/`+(date2.getDate())+`/`+(date2.getFullYear());
 
         return string1+` - `+string2;
+    }
+    dateSwap(date:Date,count:number){
+        let nextDay = new Date(date);
+        nextDay.setDate(date.getDate()+count);
+        return nextDay;
     }
 
 }
