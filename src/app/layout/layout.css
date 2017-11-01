@@ -1007,7 +1007,7 @@ input[type=range] {
     text-align: center;           /* example */
 }
 .file_upload .button:hover{
-    background-color:#3EE1AB;
+    background-color: #eb6996;
     color: black;
 }
 

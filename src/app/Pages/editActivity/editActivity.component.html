@@ -1,5 +1,5 @@
 <div class="wrapper row3">
-    <main *ngIf="Me.id == actId" id="container" class="clear">
+    <main *ngIf="Me.id == actUserId" id="container" class="clear">
         <div class="row">
             <div class="loading" *ngIf="isLoading"></div>
             <div class="col-md-12" *ngIf="!isLoading">
@@ -19,8 +19,12 @@
                     </div><br>
                     <div class="form-group">
                         <label>Picture</label>
-                        <img [src]="Activity.image">
-                        <input type="file"  (change)="changeListener($event)">
+                        <img *ngIf="Activity.image" [src]="Activity.image">
+                        <label class="file_upload">
+                            <span class="button">Browse image</span>
+                            <input type="file" (change)="changeListener($event)">
+                        </label>
+                        
                     </div><br>
                     <div class="form-group">
                         <label>Price</label>

@@ -30,6 +30,7 @@ export class EditActivityComponent implements OnInit{
     Finish:Date = new Date();
     isLoading = true;
     actId = 0;
+    actUserId = 0;
     bsConfig:Partial<BsDatepickerConfig>;
     Categories: CategoryModel[] =[];
     MyCategory:CategoryModel = new CategoryModel();
@@ -72,13 +73,14 @@ export class EditActivityComponent implements OnInit{
             this.Categories = this.service.GetCategoriesAsArrayCategory();
             this.service.GetActivity(this.actId)
                 .subscribe((act:ActivityModel)=>{
+                    this.actUserId = act.user_id;
                     this.AfterGettingActivity(act);
                     this.CreateAutocompleteMap();
                 })
                 this.service.GetMe()
                 .subscribe((res:UserModel)=>{
                     this.Me = res;
-                    console.log(`me and activ = `,this.Me, this.actId);
+                    console.log(`me and activ = `,this.Me, this.actUserId);
                 })  
         
         });
@@ -167,6 +169,7 @@ export class EditActivityComponent implements OnInit{
         this.isLoading=false;
     });
     }
+
     changeListener($event: any) : void {
         this.readThis($event.target);
     }
@@ -180,6 +183,8 @@ export class EditActivityComponent implements OnInit{
         }
         myReader.readAsDataURL(file);
     }
+
+
     mapClicked($event: any) {
         //this.Activity.lat = $event.coords.lat;
        // this.Activity.lng = $event.coords.lng;

@@ -131,7 +131,7 @@
                             </div>
                             <div class="form-group width70 marg-auto">
                                 <label>Logo image</label>
-                                <img [src]='UserUpdate.image'>
+                                <img *ngIf="UserUpdate.image" [src]='UserUpdate.image'>
                                 <input type="file" accept="image/*" name="logo_img" (change)="changeListener('user_logo',$event)">
                             </div>
                             
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="form-group width70 marg-auto">
                                     <label>Photocopy of diploma</label>
-                                    <img [src]='UserUpdate.diploma'>
+                                    <img *ngIf="UserUpdate.diploma" [src]='UserUpdate.diploma'>
                                     <input type="file"  accept="image/*" name="diploma" (change)="changeListener('diploma',$event)">
                                 </div>
                                 <div class="form-group width70 marg-auto">
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="form-group width70 marg-auto">
                                     <label>Background image</label>
-                                    <img [src]='UserUpdate.background'>
+                                    <img *ngIf="UserUpdate.background" [src]='UserUpdate.background'>
                                     <input type="file"  accept="image/*" name="background" (change)="changeListener('background',$event)">
                                 </div>
                             </div>
