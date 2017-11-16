@@ -41,9 +41,10 @@
                 <div class="loading" *ngIf="isLoading"></div>
                 <div class="cards" *ngIf="!isLoading">
                     <p *ngIf="Activities.length === 0">No activities!</p>
-                    <h3>Récentes</h3>
+                    <h3 class="text-center">Récentes</h3>
+                    <br>
                     <div class="container-fluid">
-                        <div *ngFor="let item of Activities" class="col-xs-12 col-sm-6 pull-left">
+                        <div *ngFor="let item of Activities; let i=index" class="col-xs-12 col-sm-6 pull-left" [ngClass]="{'col-sm-12':i==Activities.length-1&&Activities.length%2==1}">
                             <div class="card bg_cover" [ngStyle]="{'background':'url(' + Images['act'+item.id] + ')'}">
                                 <h3 class="cardname word-wrap">{{item.title.slice(0,180)}}</h3>
                                 <h3 *ngIf="!showDP" class="carddate">{{item.calendar[0].date | date: "dd MMM"}}</h3>
@@ -56,9 +57,10 @@
                             </div>
                         </div>
                     </div>
-                    <h3>Le Plus Populaire</h3>
+                    <h3 class="text-center">Le Plus Populaire</h3>
+                    <br>
                     <div class="container-fluid">
-                        <div *ngFor="let item of Activities" class="col-xs-12 col-sm-6 pull-left">
+                        <div *ngFor="let item of Activities; let i=index" class="col-xs-12 col-sm-6 pull-left" [ngClass]="{'col-sm-12':i==Activities.length-1&&Activities.length%2==1}">
                             <div class="card bg_cover" [ngStyle]="{'background':'url(' + Images['act'+item.id] + ')'}">
                                 <h3 class="cardname word-wrap">{{item.title.slice(0,180)}}</h3>
                                 <h3 *ngIf="!showDP" class="carddate">{{item.calendar[0].date | date: "dd MMM"}}</h3>

@@ -16,7 +16,7 @@
                 <span class="material-icons input-icon">today</span>
             </div>
             <div class="form-group form-group-makeinline">
-                <button type="button" class="btn btn-success input-withicon btn-lg" (click)="openSearch()">Rechercher</button>
+                1<button type="button" class="btn btn-success input-withicon btn-lg" (click)="openSearch()">Rechercher</button>
                 <span class="material-icons input-icon white-span">search</span>
             </div>
         </form>
@@ -93,20 +93,20 @@
 -->
 
 <div class="cards" *ngIf="!isLoading && Activities.length > 0">
-<div class="container-fluid">
-    <div *ngFor="let item of Activities"  class="col-xs-12 col-sm-6 pull-left">
-        <div class="card bg_cover" [ngStyle]="{'background':'url(' + Images['act'+item.id] + ')'}">
-            <h3 class="cardname word-wrap">{{item.title.slice(0,100)}}</h3>
-            <h3 class="carddate">{{item.calendar[0].date | date: "dd MMM"}}</h3>
-            <div class="avatar">
-                <img class="profile-logo" alt="logo" [src]="Images['user'+item.user_id]?Images['user'+item.user_id]:'./app/images/man.jpg'">
-                <span class="profile-text">{{Users[item.user_id]?.name?getShortNames(Users[item.user_id]?.name):'Author'}}</span>
+    <div class="container-fluid">
+        <div *ngFor="let item of Activities; let i = index"  class="col-xs-12 col-sm-4 pull-left" [ngClass]="{'col-sm-8':(i%2==0&&i%4==0)||(i%2==1&&i%4==1),'col-sm-12':i==Activities.length-1&&Activities.length%2==1}">
+            <div class="card bg_cover" [ngStyle]="{'background':'url(' + Images['act'+item.id] + ')'}">
+                <h3 class="cardname word-wrap">{{item.title.slice(0,100)}}</h3>
+                <h3 class="carddate">{{item.calendar[0].date | date: "dd MMM"}}</h3>
+                <div class="avatar">
+                    <img class="profile-logo" alt="logo" [src]="Images['user'+item.user_id]?Images['user'+item.user_id]:'./app/images/man.jpg'">
+                    <span class="profile-text">{{Users[item.user_id]?.name?getShortNames(Users[item.user_id]?.name):'Author'}}</span>
+                </div>
+                <span class="cardshadow"></span>
+                <a *ngIf="!showDP" [routerLink]="['/activity',item.id]"><span class="spanlink"></span></a>
             </div>
-            <span class="cardshadow"></span>
-            <a *ngIf="!showDP" [routerLink]="['/activity',item.id]"><span class="spanlink"></span></a>
         </div>
     </div>
-</div>
 </div>
 
 <div class="row middle3">
