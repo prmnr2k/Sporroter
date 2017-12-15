@@ -118,10 +118,10 @@
                                 <input type="text" class="form-control input-lg" name="user_name" [ngModel]="UserUpdate.name" (ngModelChange)="UserUpdate.name = $event">
                             </div>
                             
-                            <div class="form-group width70 marg-auto">
+                            <!--<div class="form-group width70 marg-auto">
                                 <label>Birthday</label>
                                 <input type="date" class="form-control input-lg" name="p_birthday" [ngModel]="UserUpdate.date_of_birth | date:'yyyy-MM-dd'" (ngModelChange)="UserUpdate.date_of_birth = $event">
-                            </div>
+                            </div> -->
                             <div class="form-group width70 marg-auto">
                                 <label>Gender</label>
                                 <select name="p_gender" class="form-control" [ngModel]="UserUpdate.gender" (ngModelChange)="UserUpdate.gender = $event">

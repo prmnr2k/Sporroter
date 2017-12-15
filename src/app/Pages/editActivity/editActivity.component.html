@@ -18,7 +18,7 @@
                         <input type="text" class="form-control input-lg" maxlength="30" name="title" [ngModel]="Activity.title" (ngModelChange)="Activity.title = $event">
                     </div><br>
                     <div class="form-group">
-                        <label>Picture</label>
+                        <label>Activity background picture</label>
                         <img *ngIf="Activity.image" [src]="Activity.image">
                         <label class="file_upload">
                             <span class="button">Browse image</span>
