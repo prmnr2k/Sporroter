@@ -37,6 +37,7 @@ import { CategoryModel } from '../models/category.model';
             this.onAuthChange$.next(false);
             this.onPageChange$ = new Subject();
             this.onPageChange$.next('index');
+        
             this.me = new UserModel();
             
         }

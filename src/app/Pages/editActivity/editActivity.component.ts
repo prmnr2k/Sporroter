@@ -50,7 +50,7 @@ export class EditActivityComponent implements OnInit{
         private _sanitizer: DomSanitizer
         )
     {
-       
+      
     }
 
     ngOnInit() {
@@ -58,14 +58,29 @@ export class EditActivityComponent implements OnInit{
         this.bsConfig = Object.assign({}, {containerClass: 'theme-default',showWeekNumbers:false});
         this.isLoading = true;
 
+        if(!localStorage.getItem('firstLoadActivityEdit')){
+            localStorage.setItem('firstLoadActivityEdit','true');
+        }
+        if (localStorage.getItem('firstLoadActivityEdit')=='true'){
+                localStorage.setItem('firstLoadActivityEdit','false');
+                location.reload();
+            }
+        else if (localStorage.getItem('firstLoadActivityEdit')=='false')
+        {
+            localStorage.removeItem('firstLoadActivityEdit');
+        }
+
+        
+
         this.activatedRoute.params.forEach((params:Params) => {
 
             console.log(location.search);
            
-            if(location.search != '?reload=true' ) {
+           /* if(location.search != '?reload=true' ) {
                 this.router.navigate(['/edit_act',params["id"]],{ queryParams: { reload: true } });
                 location.reload();
-            }
+            }*/
+          
 
             this.actId = params["id"];
             //this.Activity.lat = null;
@@ -83,7 +98,7 @@ export class EditActivityComponent implements OnInit{
                     console.log(`me and activ = `,this.Me, this.actUserId);
                 })  
         
-        });
+       });
 
         
         

@@ -1186,12 +1186,22 @@ var EditActivityComponent = (function () {
         var _this = this;
         this.bsConfig = Object.assign({}, { containerClass: 'theme-default', showWeekNumbers: false });
         this.isLoading = true;
+        if (!localStorage.getItem('firstLoadActivityEdit')) {
+            localStorage.setItem('firstLoadActivityEdit', 'true');
+        }
+        if (localStorage.getItem('firstLoadActivityEdit') == 'true') {
+            localStorage.setItem('firstLoadActivityEdit', 'false');
+            location.reload();
+        }
+        else if (localStorage.getItem('firstLoadActivityEdit') == 'false') {
+            localStorage.removeItem('firstLoadActivityEdit');
+        }
         this.activatedRoute.params.forEach(function (params) {
             console.log(location.search);
-            if (location.search != '?reload=true') {
-                _this.router.navigate(['/edit_act', params["id"]], { queryParams: { reload: true } });
-                location.reload();
-            }
+            /* if(location.search != '?reload=true' ) {
+                 this.router.navigate(['/edit_act',params["id"]],{ queryParams: { reload: true } });
+                 location.reload();
+             }*/
             _this.actId = params["id"];
             //this.Activity.lat = null;
             //this.Activity.lng = null;
