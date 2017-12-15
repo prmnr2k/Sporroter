@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
                     }
                   );
       });
-      
+
 
       this.mainService.TryToLoginWithToken();
 
@@ -38,5 +38,6 @@ export class AppComponent implements OnInit{
       //console.log();
       this.mainService.Logout();
       this.router.navigate(['/']);
+      location.reload();
   }
 }

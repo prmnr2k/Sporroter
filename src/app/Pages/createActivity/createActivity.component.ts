@@ -178,6 +178,16 @@ export class CreateActivityComponent implements OnInit {
             return;
         }
         console.log(this.Activity);
+
+        for(let i=0;i<this.Activity.calendar.length;i++){ 
+            for(let j=i+1;j<this.Activity.calendar.length;j++) 
+             if (this.isEqualDates(this.Activity.calendar[i],this.Activity.calendar[j])){
+                this.Activity.calendar.splice(j,1);
+                j = 0;
+             }
+        }
+        console.log(`calendar-`,this.Activity.calendar);
+  
         this.service.CreateActivity(this.Activity)
         .subscribe((res:ActivityModel)=>{
             this.router.navigate(['/activity',res.id]);
@@ -216,16 +226,26 @@ export class CreateActivityComponent implements OnInit {
     }
 
     NewDate(){
-        this.Activity.calendar.push(new Date());
-        
+        let date:Date = new Date();
+        if(this.Activity.calendar.length>0)
+            date.setDate(this.Activity.calendar[this.Activity.calendar.length-1].getDate()+1);
+        this.Activity.calendar.push(date);
     }
+
     DeleteDate(index:number){
         this.Activity.calendar.splice(index,1);
     }
 
-    ActivityCalendarChanged(index:number, date:Date){     
+    ActivityCalendarChanged(index:number, date:Date){   
+        let avalDate = true;
         this.Activity.calendar[index] = date;
         console.log('calendar', this.Activity.calendar);
+    }
+    isEqualDates(date1:Date,date2:Date){
+        console.log(`dates`,date1,date2);
+        if(date1.getDate()==date2.getDate() && date1.getFullYear()==date2.getFullYear() && date1.getMonth()==date2.getMonth())
+        return true;
+        else return false;
     }
 
     ChangeBookings(elem){

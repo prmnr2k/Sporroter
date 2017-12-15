@@ -64,6 +64,7 @@ export class RegisterComponent implements OnInit{
         (err:any)=>{
             console.log(err);
             this.ErrMsg = err._body;
+            if(err._body==`{"email":["has already been taken"]}`) this.ErrMsg = "This E-mail is alredy used!";
             this.isRegErr = true;
             this.isLoading = false;
         })

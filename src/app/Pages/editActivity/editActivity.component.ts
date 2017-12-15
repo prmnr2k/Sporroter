@@ -170,6 +170,18 @@ export class EditActivityComponent implements OnInit{
             this.isLoading = false;
             return;
         }
+
+        for(let i=0;i<this.Activity.calendar.length;i++){ 
+            for(let j=i+1;j<this.Activity.calendar.length;j++) 
+             if (this.isEqualDates(this.Activity.calendar[i],this.Activity.calendar[j])){
+                this.Activity.calendar.splice(j,1);
+                j = 0;
+             }
+        }
+        console.log(`calendar-`,this.Activity.calendar);
+  
+
+
         this.service.UpdateActivity(this.actId,this.Activity)
         .subscribe((res:ActivityModel)=>{
             console.log(`---> `,res,this.Activity);
@@ -183,6 +195,13 @@ export class EditActivityComponent implements OnInit{
         this.isEditErr = true;
         this.isLoading=false;
     });
+    }
+
+    isEqualDates(date1:Date,date2:Date){
+        console.log(`dates`,date1,date2);
+        if(date1.getDate()==date2.getDate() && date1.getFullYear()==date2.getFullYear() && date1.getMonth()==date2.getMonth())
+        return true;
+        else return false;
     }
 
     changeListener($event: any) : void {

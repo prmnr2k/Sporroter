@@ -51,7 +51,7 @@
                         <form>
                             <div class="form-group  form-group-makeinline">
                                 <select class="form-control input-withicon input-lg" name="booking_date" [ngModel]="Booking.date" (ngModelChange)="GetBookingsByDateUnsub($event)">
-                                    <option *ngFor="let item of Activity.calendar" [value]="item.date">{{item.date | date:'M/dd/yyyy'}}</option>
+                                    <option *ngFor="let item of Activity.calendar" [value]="item.date">{{item.date | date:'MM/dd/yyyy'}}</option>
 
                                 </select>
                                 <span class="material-icons input-icon">today</span>
